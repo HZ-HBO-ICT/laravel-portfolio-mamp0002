@@ -14,6 +14,11 @@ use App\Http\Controllers\{DashboardController, ProfileController, BLogController
 |
 */
 
+//Route::get('/posts/{slug}', function ($slug) {
+//
+//});
+
+Route::get('/posts/{slug}', [\App\Http\Controllers\PostsController::class, 'show']);
 
 Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'show']);
 
