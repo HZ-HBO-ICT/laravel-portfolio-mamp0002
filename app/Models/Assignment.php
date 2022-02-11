@@ -9,6 +9,9 @@ class Assignment extends Model
 {
     use HasFactory;
 
+    /**
+     * this function sets a specific row into completed when called
+     */
     public function complete()
     {
         $this->completed = true;
