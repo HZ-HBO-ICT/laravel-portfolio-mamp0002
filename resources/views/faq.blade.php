@@ -10,12 +10,17 @@
     questions and their answers.">
     <link type="text/css" rel="stylesheet" href="/css/style-website.css">
 </head>
+@extends('layout')
 
-<body>
-<header><a href="https://www.hz.nl" target="_blank"><img alt="HZ-logo" src="img/hzlogo.png"
-                                                         class="hzlogo"></a>Frequently
-    Asked Questions</header>
-<?php require "style/header.php" ?>
+@section('title')
+    <title>FAQ</title>
+@endsection
+
+@section('name-of-page')
+    Frequently Asked Questions
+@endsection
+
+@section('content')
 <main class="margin-not-index">
     <section>
         <article>
@@ -39,6 +44,4 @@
         </article>
     </section>
 </main>
-</body>
-<?php require "style/footer.php" ?>
-</html>
+@endsection

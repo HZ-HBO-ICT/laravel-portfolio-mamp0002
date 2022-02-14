@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout')
 
-<head>
+@section('title')
     <title>My profile</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.5">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+@endsection
+
+@section('description')
     <meta name="description"
           content="A page about who I am and what my hobbies and extra-curricular activities include.">
-    <link type="text/css" rel="stylesheet" href="/css/style-website.css">
-</head>
+@endsection
 
-<body>
-<header><a href="https://www.hz.nl" target="_blank"><img alt="HZ logo" src="/img/hzlogo.png"
-                                                         class="hzlogo"></a>My Profile
-    Page</header>
-<?php require "style/header.php" ?>
+@section('name-of-page')
+    My Profile
+@endsection
+
+@section('content')
 <main class="margin-not-index">
     <section class="grid-profile">
         <article>
@@ -50,6 +48,4 @@
         </article>
     </section>
 </main>
-</body>
-<?php require "style/footer.php" ?>
-</html>
+@endsection

@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html>
+@extends('layout')
 
-<head>
-    <title>dashboard</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.5">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+@section('title')
+    <title>Dashboard</title>
+@endsection
+
+@section('description')
     <meta name="description" content="The dashboard with an overview of the courses in
     the first year of the ICT Programme at HZ.">
-    <link type="text/css" rel="stylesheet" href="/css/style-website.css">
-</head>
+@endsection
 
-<body>
-<header><a href="https://www.hz.nl" target="_blank"><img alt="HZ-logo" src="/img/hzlogo.png" class="hzlogo"></a>Study
-    Progress Dashboard</header>
-<?php require "style/header.php" ?>
+@section('name-of-page')
+    Study Progress Dashboard
+@endsection
+
+@section('content')
 <main class="margin-not-index">
     <section>
         <article>
@@ -412,6 +411,4 @@
         </article>
     </section>
 </main>
-</body>
-<?php require "style/footer.php" ?>
-</html>
+@endsection
