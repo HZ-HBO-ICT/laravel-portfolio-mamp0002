@@ -11,8 +11,6 @@ class FAQController
      */
     public function show()
     {
-        // $questions = Faq::all();
-
         return view('faq', ['questions'=>Faq::all()]);
     }
 }

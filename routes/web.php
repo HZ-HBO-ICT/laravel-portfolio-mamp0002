@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\{BLogController, DashboardController, FAQController, ProfileController};
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{DashboardController, ProfileController, BLogController, FAQController};
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +13,6 @@ use App\Http\Controllers\{DashboardController, ProfileController, BLogController
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-//Route::get('/posts/{slug}', function ($slug) {
-//
-//});
 
 Route::get('/posts/{slug}', [\App\Http\Controllers\PostsController::class, 'show']);
 
