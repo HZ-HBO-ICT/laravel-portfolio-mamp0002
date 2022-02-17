@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+
 class ProfileController
 {
     /**
@@ -9,6 +11,6 @@ class ProfileController
      */
     public function show()
     {
-        return view('profile');
+        return view('profile',['articles'=>Article::take(3)->get()]);
     }
 }

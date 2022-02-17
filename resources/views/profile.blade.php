@@ -47,5 +47,17 @@
             <img alt="Picture of me, my boyfriend and my dog" src="/img/foto1site.jpg" class="imgprofile">
         </article>
     </section>
+    <section>
+        @foreach ($articles as $article)
+            <article class="blogpost">
+                <small><i>{{$article->created_at}}</i></small><br>
+                <h3>{{$article->title}}</h3>
+                <p>{{$article->excerpt}}
+                    <a href="{{$article->link}}">Read more...</a>
+                </p>
+            </article>
+        @endforeach
+    </section>
+
 </main>
 @endsection

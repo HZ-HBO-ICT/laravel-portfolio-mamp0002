@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Article;
 use App\Http\Controllers\{BLogController, DashboardController, FAQController, ProfileController};
+use App\Http\Controllers\ArticlesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,20 +22,8 @@ Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'show']);
 
 Route::get('/profile', [ProfileController::class, 'show']);
 Route::get('/dashboard', [DashboardController::class, 'show']);
-Route::get('/blog', [BlogController::class, 'show']);
-Route::get('/faq', [FAQController::class, 'show']);
-Route::get('/blog/{blog}', function($blog) {
-    $blogs = [
-        'experience',
-        'feedback',
-        'website',
-        'profession',
-        'studychoice',
-        'swot'
-    ];
 
-    if(array_search($blog, $blogs) === null) {
-        abort(404, 'Sorry, that blog was not found.');
-    }
-    return view($blog);
-});
+Route::get('/faq', [FAQController::class, 'show']);
+
+Route::get('/blog', [BlogController::class, 'index']);
+Route::get('/blog/{article}', [BlogController::class, 'show']);
