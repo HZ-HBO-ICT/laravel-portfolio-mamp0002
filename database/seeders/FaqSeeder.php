@@ -81,7 +81,5 @@ class FaqSeeder extends Seeder
             'answer'=>'You must park your car "across the road", at the parking lot of the former PEZM.',
             'link'=>'',
         ]);
-
-
     }
 }
