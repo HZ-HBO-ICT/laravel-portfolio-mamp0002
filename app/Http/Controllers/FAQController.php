@@ -67,6 +67,10 @@ class FAQController
         return redirect('/faq');
     }
 
+    /**
+     * function to delete a faq
+     * @param $id
+     */
     public function destroy($id)
     {
         $article = Faq::where('id', $id);

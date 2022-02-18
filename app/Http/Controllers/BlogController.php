@@ -59,7 +59,8 @@ class BlogController
     /**
      * function to edit existing article
      */
-    public function edit($link) {
+    public function edit($link)
+    {
         $article = Article::find($link);
 
         return view('articles.edit', ['article' => $article]);
@@ -68,7 +69,8 @@ class BlogController
     /**
      * function to update existing article
      */
-    public function update($link) {
+    public function update($link)
+    {
         $article = Article::find($link);
 
         //set the values of article according to the data from the form
@@ -82,6 +84,10 @@ class BlogController
         return redirect($article->link);
     }
 
+    /**
+     * function to delete an article
+     * @param $id
+     */
     public function destroy($id)
     {
         $article = Article::where('id', $id);
