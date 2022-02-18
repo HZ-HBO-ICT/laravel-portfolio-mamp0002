@@ -22,12 +22,17 @@
             @foreach($questions as $question)
             <details>
                         <summary>{{ $question->question }}</summary>
-                        <p>{!! $question->answer !!}</p>
+                        <p>{!! $question->answer !!}
+                            <br>
+                            <button onclick="window.location.href='/faq/{{$question->id}}/edit'">
+                                Edit this faq
+                            </button>
+                        </p>
             </details>
             @endforeach
 
             <a href="https://hzuniversity.topdesk.net/tas/public/ssp/" target="_blank"><img
-                    alt="cartoon image of a man with a question mark" src="/public/img/question.png"
+                    alt="cartoon image of a man with a question mark" src="/img/question.png"
                     class="imgquestion"></a>
         </article>
     </section>

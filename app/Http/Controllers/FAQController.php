@@ -40,4 +40,37 @@ class FAQController
         // redirecting to show a page
         return redirect('/faq');
     }
+
+    /**
+     * function to edit existing faq
+     */
+    public function edit($id)
+    {
+        $question = Faq::find($id);
+
+        return view('faqs.edit', ['question' => $question]);
+    }
+
+    /**
+     * function to update existing faq
+     */
+    public function update($id)
+    {
+        $question = Faq::find($id);
+
+        //set the values of article according to the data from the form
+        $question->question = request('question');
+        $question->answer = request('answer');
+
+        $question->save();
+
+        return redirect('/faq');
+    }
+
+    public function destroy($id)
+    {
+        $article = Faq::where('id', $id);
+        $article->delete();
+        return redirect('/faq');
+    }
 }

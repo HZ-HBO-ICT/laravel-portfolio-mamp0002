@@ -23,6 +23,10 @@
         <article>
             {!! $article->body !!}
         </article>
+        <br><br>
+        <button onclick="window.location.href='/blog/{{$article->id}}/edit'">
+            Edit this post
+        </button>
     </section>
 </main>
 

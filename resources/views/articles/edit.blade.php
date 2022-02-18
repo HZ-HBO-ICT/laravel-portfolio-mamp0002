@@ -1,35 +1,52 @@
-<form method="POST" action="/blog">
-    @csrf
-    @method('PUT')
-    @method('DELETE')
-    <div class="field">
-        <label for="title"> {{$article->title}} </label>
-        <div class="control">
-            <input type="text" name="title" id="title">
-        </div>
-    </div>
+@extends('layout')
 
-    <div class="field">
-        <label for="excerpt"> {{$article->excerpt}} </label>
-        <div class="control">
-            <textarea name="excerpt" id="excerpt" rows="2" cols="50"> </textarea>
-        </div>
-    </div>
+@section('content')
 
-    <div class="field">
-        <label for="body"> {{$article->body}} </label>
-        <div class="control">
-            <textarea name="body" id="body" rows="3" cols="50"> </textarea>
-        </div>
-    </div>
+    <main class="margin-not-index">
+        <h1>Edit Article</h1>
+        <form method="POST" action="{{$article->link}}">
+            @csrf
+            @method('PUT')
 
-    <div class="field">
-        <label for="link"> {{$article->link}} </label>
-        <div class="control">
-            <input type="text" name="link" id="link" value="for example: My-Post-1">
-        </div>
-    </div>
+            <div class="field">
+                <label class="label" for="title">Title</label>
 
-    <button type="submit">Submit</button>
+                <div class="control">
+                    <input class="input" type="text" name="title" id="title" value="{{$article->title}}">
+                </div>
+            </div>
 
-</form>
+            <div class="field">
+                <label class="label" for="excerpt">Excerpt</label>
+
+                <div class="control">
+                    <textarea class="textarea" name="excerpt" id="excerpt">{{$article->excerpt}}</textarea>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="body">Body</label>
+
+                <div class="control">
+                    <textarea class="textarea" name="body" id="body">{{$article->body}}</textarea>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="link">Link</label>
+                <div class="control">
+                    <input type="text" name="link" id="link" value="{{$article->link}}">
+                </div>
+            </div>
+
+            <div class="control">
+                <button class="button is-link">Submit</button>
+            </div>
+        </form>
+        <form method="POST" action="/blog/{{$article->id}}">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Delete</button>
+        </form>
+    </main>
+@endsection

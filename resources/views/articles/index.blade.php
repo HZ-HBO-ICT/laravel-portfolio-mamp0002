@@ -20,7 +20,7 @@
                     <small><i>{{$article->created_at}}</i></small><br>
                     <h3>{{$article->title}}</h3>
                     <p>{{$article->excerpt}}
-                        <a href="{{$article->link}}">Read more...</a>
+                        <a href="/blog/{{$article->id}}">Read more...</a>
                     </p>
                 </article>
             @endforeach

@@ -55,4 +55,38 @@ class BlogController
         // redirecting to show a page
         return redirect('/blog');
     }
+
+    /**
+     * function to edit existing article
+     */
+    public function edit($link) {
+        $article = Article::find($link);
+
+        return view('articles.edit', ['article' => $article]);
+    }
+
+    /**
+     * function to update existing article
+     */
+    public function update($link) {
+        $article = Article::find($link);
+
+        //set the values of article according to the data from the form
+        $article->title = request('title');
+        $article->excerpt = request('excerpt');
+        $article->body = request('body');
+        $article->link = request('link');
+
+        $article->save();
+
+        return redirect($article->link);
+    }
+
+    public function destroy($id)
+    {
+        $article = Article::where('id', $id);
+        $article->delete();
+
+        return redirect('/blog');
+    }
 }
