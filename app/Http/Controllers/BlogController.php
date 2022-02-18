@@ -27,11 +27,17 @@ class BlogController
         return view('articles.index', ['articles'=>$articles]);
     }
 
+    /**
+     * function to create new blogpost
+     */
     public function create()
     {
         return view('articles.create');
     }
 
+    /**
+     * function to store the filled-in data in the form for create
+     */
     public function store()
     {
         //create a new article
@@ -47,40 +53,6 @@ class BlogController
         $article->save();
 
         // redirecting to show a page
-        return redirect('/blog');
-
-
-    }
-
-    public function edit($link)
-    {
-            $article = Article::where('link', $link);
-
-        return view('articles.edit', ['article'=>$article]);
-    }
-
-    public function update($link)
-    {
-        //get the current article we are editing
-        $article = Article::where('link', $link);
-
-        //edit the fields according to the form
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
-        $article->link = request('link');
-
-        //save it to the database
-        $article->save();
-
-        // redirect back to the edited article page:
-        return redirect($article->link);
-    }
-
-    public function destroy($link)
-    {
-        $article = Article::where('link', $link);
-        $article->delete();
         return redirect('/blog');
     }
 }

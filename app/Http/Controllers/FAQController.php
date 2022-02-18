@@ -14,11 +14,17 @@ class FAQController
         return view('faq', ['questions'=>Faq::all()]);
     }
 
+    /**
+     * function to create new faq
+     */
     public function create()
     {
         return view('faqs.create');
     }
 
+    /**
+     * function to store the filled-in data in the form for create
+     */
     public function store()
     {
         //create a new article
