@@ -23,7 +23,19 @@ Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'show']);
 Route::get('/profile', [ProfileController::class, 'show']);
 Route::get('/dashboard', [DashboardController::class, 'show']);
 
+Route::post('/faq', [FAQController::class, 'store']);
+Route::get('/faq/create', [FAQController::class, 'create']);
 Route::get('/faq', [FAQController::class, 'show']);
 
 Route::get('/blog', [BlogController::class, 'index']);
+Route::post('/blog', [BlogController::class, 'store']);
+Route::get('/blog/create', [BlogController::class, 'create']);
 Route::get('/blog/{article}', [BlogController::class, 'show']);
+
+//Route::get('/blog/{article}/edit', [BlogController::class, 'edit']);
+//Route::put('/blog/{article}', [BlogController::class, 'update']);
+//Route::delete('/blog/{article}', [BlogController::class, 'destroy']);
+
+
+
+

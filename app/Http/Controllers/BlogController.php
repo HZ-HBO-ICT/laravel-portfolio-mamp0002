@@ -7,7 +7,7 @@ use App\Models\Article;
 class BlogController
 {
     /**
-     * function to show specific articles
+     * Function to show the view page for the specific article
      * @param $id
      */
     public function show($id)
@@ -18,25 +18,69 @@ class BlogController
     }
 
     /**
-     * function to show the view page of blog
+     * function to show the view page of blog (render a list of articles)
      */
     public function index()
     {
         $articles = Article::latest()->get();
 
-        return view('index', ['articles'=>$articles]);
+        return view('articles.index', ['articles'=>$articles]);
     }
 
-    /**
-     * function to show the view page of a post
-     *
-     * @param $link
-     */
-    public function showPost($link)
+    public function create()
+    {
+        return view('articles.create');
+    }
+
+    public function store()
+    {
+        //create a new article
+        $article = new Article();
+
+        //set the values of article according to the data from the form
+        $article->title = request('title');
+        $article->excerpt = request('excerpt');
+        $article->body = request('body');
+        $article->link = request('link');
+
+        //save it to the database
+        $article->save();
+
+        // redirecting to show a page
+        return redirect('/blog');
+
+
+    }
+
+    public function edit($link)
+    {
+            $article = Article::where('link', $link);
+
+        return view('articles.edit', ['article'=>$article]);
+    }
+
+    public function update($link)
+    {
+        //get the current article we are editing
+        $article = Article::where('link', $link);
+
+        //edit the fields according to the form
+        $article->title = request('title');
+        $article->excerpt = request('excerpt');
+        $article->body = request('body');
+        $article->link = request('link');
+
+        //save it to the database
+        $article->save();
+
+        // redirect back to the edited article page:
+        return redirect($article->link);
+    }
+
+    public function destroy($link)
     {
         $article = Article::where('link', $link);
-        return view('articles.show', [
-            'article' => $article->firstOrFail()
-        ]);
+        $article->delete();
+        return redirect('/blog');
     }
 }

@@ -25,6 +25,10 @@
                 </article>
             @endforeach
         </section>
+        <br><br><br>
+        <button onclick="window.location.href='/blog/create'">
+            Create New Post
+        </button>
     </main>
 @endsection
 

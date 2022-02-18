@@ -27,9 +27,13 @@
             @endforeach
 
             <a href="https://hzuniversity.topdesk.net/tas/public/ssp/" target="_blank"><img
-                    alt="cartoon image of a man with a question mark" src="/img/question.png"
+                    alt="cartoon image of a man with a question mark" src="/public/img/question.png"
                     class="imgquestion"></a>
         </article>
     </section>
+    <br><br><br>
+    <button onclick="window.location.href='/faq/create'">
+        Add new FAQ
+    </button>
 </main>
 @endsection
