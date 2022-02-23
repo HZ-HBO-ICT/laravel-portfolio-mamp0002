@@ -24,7 +24,7 @@
                         <summary>{{ $faq->question }}</summary>
                         <p>{!! $faq->answer !!}
                             <br>
-                            <button onclick="window.location.href='/faq/{{$faq->id}}/edit'">
+                            <button onclick=window.location.href="{{route('faq.edit', $faq)}}">
                                 Edit this faq
                             </button>
                         </p>
@@ -37,7 +37,7 @@
         </article>
     </section>
     <br><br><br>
-    <button onclick="window.location.href='/faq/create'">
+    <button onclick=window.location.href="{{route('faq.create')}}">
         Add new FAQ
     </button>
 </main>

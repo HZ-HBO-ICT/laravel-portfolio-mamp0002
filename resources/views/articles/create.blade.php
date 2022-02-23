@@ -4,7 +4,7 @@
 
     <main class="margin-not-index">
         <h2>New Article</h2>
-        <form method="POST" action="/article">
+        <form method="POST" action="{{route('article.index')}}">
             @csrf
             <div class="field">
                 <label class="label" for="title">Title</label>

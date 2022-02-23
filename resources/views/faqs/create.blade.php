@@ -4,7 +4,7 @@
 
     <main class="margin-not-index">
         <h1>New FAQ</h1>
-        <form method="POST" action="/faq">
+        <form method="POST" action="{{route('faq.index')}}">
             @csrf
 
             <div class="field">

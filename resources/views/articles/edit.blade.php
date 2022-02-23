@@ -4,7 +4,7 @@
 
     <main class="margin-not-index">
         <h1>Edit Article</h1>
-        <form method="POST" action="/article/{{$article->id}}">
+        <form method="POST" action="{{route('article.show', $article)}}">
             @csrf
             @method('PUT')
 
@@ -45,7 +45,7 @@
                 <button class="button is-link">Submit</button>
             </div>
         </form>
-        <form method="POST" action="/article/{{$article->id}}">
+        <form method="POST" action="{{route('article.show', $article)}}">
             @csrf
             @method('DELETE')
             <button type="submit">Delete</button>

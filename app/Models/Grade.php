@@ -9,6 +9,7 @@ class Grade extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
     /**
      * This function will add a new grade when everything is met
      *
