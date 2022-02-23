@@ -17,7 +17,6 @@ class CreateFaqsTable extends Migration
             $table->id();
             $table->string('question');
             $table->text('answer');
-            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

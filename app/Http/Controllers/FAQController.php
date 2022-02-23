@@ -3,15 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faq;
+use Illuminate\Http\Request;
 
 class FAQController
 {
+
+    /**
+     * function to show the view page of blog (render a list of articles)
+     */
+    public function index()
+    {
+        $faqs = Faq::latest()->get();
+
+        return view('faqs.index', ['faqs' => $faqs]);
+    }
+
     /**
      * function to show the view page
      */
     public function show()
     {
-        return view('faq', ['questions'=>Faq::all()]);
+        return view('faq', ['faq'=>Faq::all()]);
     }
 
     /**
@@ -25,17 +37,9 @@ class FAQController
     /**
      * function to store the filled-in data in the form for create
      */
-    public function store()
+    public function store(Request $request)
     {
-        //create a new article
-        $question = new Faq();
-
-        //set the values of article according to the data from the form
-        $question->question = request('question');
-        $question->answer = request('answer');
-
-        //save it to the database
-        $question->save();
+        Faq::create($this->validatedFaq($request));
 
         // redirecting to show a page
         return redirect('/faq');
@@ -44,25 +48,17 @@ class FAQController
     /**
      * function to edit existing faq
      */
-    public function edit($id)
+    public function edit(Faq $faq)
     {
-        $question = Faq::find($id);
-
-        return view('faqs.edit', ['question' => $question]);
+        return view('faqs.edit', ['faq' => $faq]);
     }
 
     /**
      * function to update existing faq
      */
-    public function update($id)
+    public function update(Faq $faq, Request $request)
     {
-        $question = Faq::find($id);
-
-        //set the values of article according to the data from the form
-        $question->question = request('question');
-        $question->answer = request('answer');
-
-        $question->save();
+        $faq->update($this->validatedFaq($request));
 
         return redirect('/faq');
     }
@@ -71,10 +67,21 @@ class FAQController
      * function to delete a faq
      * @param $id
      */
-    public function destroy($id)
+    public function destroy(Faq $faq)
     {
-        $article = Faq::where('id', $id);
-        $article->delete();
+        $faq->delete();
         return redirect('/faq');
+    }
+
+    /**
+     * @return array
+     */
+    public function validatedFaq(Request $request): array
+    {
+        $validatedFaq = $request->validate([
+            'question' => 'required',
+            'answer' => 'required',
+        ]);
+        return $validatedFaq;
     }
 }

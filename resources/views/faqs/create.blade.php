@@ -11,7 +11,10 @@
                 <label class="label" for="question">Question</label>
 
                 <div class="control">
-                    <textarea class="textarea" name="question" id="question"></textarea>
+                    <textarea class="@error('question') button-error @enderror text-area" name="question" id="question">{{old('question')}}</textarea>
+                    @error('question')
+                    <p class="error-message">{{$errors->first('question')}}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -19,7 +22,10 @@
                 <label class="label" for="answer">Answer</label>
 
                 <div class="control">
-                    <textarea class="textarea" name="answer" id="answer"></textarea>
+                    <textarea class="@error('answer') button-error @enderror text-area" name="answer" id="answer"></textarea>
+                    @error('answer')
+                    <p class="error-message">{{$errors->first('answer')}}</p>
+                    @enderror
                 </div>
             </div>
 

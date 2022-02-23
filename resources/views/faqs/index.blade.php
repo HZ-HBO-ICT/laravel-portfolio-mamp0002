@@ -19,12 +19,12 @@
         </article>
         <article>
 
-            @foreach($questions as $question)
+            @foreach($faqs as $faq)
             <details>
-                        <summary>{{ $question->question }}</summary>
-                        <p>{!! $question->answer !!}
+                        <summary>{{ $faq->question }}</summary>
+                        <p>{!! $faq->answer !!}
                             <br>
-                            <button onclick="window.location.href='/faq/{{$question->id}}/edit'">
+                            <button onclick="window.location.href='/faq/{{$faq->id}}/edit'">
                                 Edit this faq
                             </button>
                         </p>

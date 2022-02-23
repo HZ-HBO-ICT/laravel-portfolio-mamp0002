@@ -15,7 +15,7 @@
 <header><a href="https://www.hz.nl" target="_blank"><img alt="HZ-logo" src="/img/hzlogo.png" class="hzlogo"></a>{{$article->title}}</header>
 <nav>
     <ul>
-        <li class="menu-right"><a href="/blog">Back to the blogpage</a></li>
+        <li class="menu-right"><a href="/article">Back to the blogpage</a></li>
     </ul>
 </nav>
 <main class="margin-not-index">
@@ -24,7 +24,7 @@
             {!! $article->body !!}
         </article>
         <br><br>
-        <button onclick="window.location.href='/blog/{{$article->id}}/edit'">
+        <button onclick="window.location.href='/article/{{$article->id}}/edit'">
             Edit this post
         </button>
     </section>

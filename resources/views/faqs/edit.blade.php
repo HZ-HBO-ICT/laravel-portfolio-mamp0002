@@ -4,7 +4,7 @@
 
     <main class="margin-not-index">
         <h1>Edit FAQ</h1>
-        <form method="POST" action="/faq/{{$question->id}}">
+        <form method="POST" action="/faq/{{$faq->id}}">
             @csrf
             @method('PUT')
 
@@ -12,7 +12,10 @@
                 <label class="label" for="question">Question</label>
 
                 <div class="control">
-                    <textarea class="textarea" name="question" id="question">{{$question->question}}</textarea>
+                    <textarea class="@error('question') button-error @enderror text-area" name="question" id="question">{{$faq->question}}</textarea>
+                    @error('question')
+                    <p class="error-message">{{$errors->first('question')}}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -20,7 +23,10 @@
                 <label class="label" for="answer">Answer</label>
 
                 <div class="control">
-                    <textarea class="textarea" name="answer" id="answer">{{$question->answer}}</textarea>
+                    <textarea class="@error('answer') button-error @enderror text-area" name="answer" id="answer">{{$faq->answer}}</textarea>
+                    @error('answer')
+                    <p class="error-message">{{$errors->first('answer')}}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -28,7 +34,7 @@
                 <button class="button is-link">Submit</button>
             </div>
         </form>
-        <form method="POST" action="/faq/{{$question->id}}">
+        <form method="POST" action="/faq/{{$faq->id}}">
             @csrf
             @method('DELETE')
             <button type="submit">Delete</button>

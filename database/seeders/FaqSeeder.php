@@ -41,7 +41,6 @@ class FaqSeeder extends Seeder
                             is completed, press Stop on the TouchID, followed by Logout
                         </li>
                     </ol>',
-            'link'=>'',
         ]);
         DB::table('faqs')->insert([
             'question'=>'How can you scan a document and send it to your laptop at HZ?',
@@ -60,13 +59,11 @@ class FaqSeeder extends Seeder
                             Sending</li>
                         <li>When scanning is completed, press Stop on the TouchID, followed by Logout</li>
                     </ol>',
-            'link'=>'',
         ]);
         DB::table('faqs')->insert([
             'question'=>'What do you need to do when you are sick / show symptoms of coronavirus?',
             'answer'=>'Contact the teachers/helpdesk at school and stay home. Follow the lessons on stream to compensate
                         for that unusual sickness.',
-            'link'=>'',
         ]);
         DB::table('faqs')->insert([
             'question'=>'How can you book a project space in one of the wings?',
@@ -74,12 +71,10 @@ class FaqSeeder extends Seeder
                         click "Make
                         a reservation" and
                         there you can, amongst other things, book a project room.',
-            'link'=>'',
         ]);
         DB::table('faqs')->insert([
             'question'=>'What are the instructions if you want to park your car at the HZ parking lot?',
             'answer'=>'You must park your car "across the road", at the parking lot of the former PEZM.',
-            'link'=>'',
         ]);
     }
 }

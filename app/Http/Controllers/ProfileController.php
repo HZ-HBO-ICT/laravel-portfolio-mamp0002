@@ -11,6 +11,6 @@ class ProfileController
      */
     public function show()
     {
-        return view('profile', ['articles'=>Article::take(3)->get()]);
+        return view('profile', ['articles'=>Article::latest()->take(3)->get()]);
     }
 }

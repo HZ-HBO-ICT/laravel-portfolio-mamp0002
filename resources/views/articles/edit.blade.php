@@ -4,7 +4,7 @@
 
     <main class="margin-not-index">
         <h1>Edit Article</h1>
-        <form method="POST" action="{{$article->link}}">
+        <form method="POST" action="/article/{{$article->id}}">
             @csrf
             @method('PUT')
 
@@ -12,7 +12,10 @@
                 <label class="label" for="title">Title</label>
 
                 <div class="control">
-                    <input class="input" type="text" name="title" id="title" value="{{$article->title}}">
+                    <input class="@error('title') button-error @enderror text-area" type="text" name="title" id="title" value="{{$article->title}}">
+                    @error('title')
+                    <p class="error-message">{{$errors->first('title')}}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -20,7 +23,10 @@
                 <label class="label" for="excerpt">Excerpt</label>
 
                 <div class="control">
-                    <textarea class="textarea" name="excerpt" id="excerpt">{{$article->excerpt}}</textarea>
+                    <textarea class="@error('excerpt') button-error @enderror text-area" name="excerpt" id="excerpt">{{$article->excerpt}}</textarea>
+                    @error('excerpt')
+                    <p class="error-message">{{$errors->first('excerpt')}}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -28,14 +34,10 @@
                 <label class="label" for="body">Body</label>
 
                 <div class="control">
-                    <textarea class="textarea" name="body" id="body">{{$article->body}}</textarea>
-                </div>
-            </div>
-
-            <div class="field">
-                <label for="link">Link</label>
-                <div class="control">
-                    <input type="text" name="link" id="link" value="{{$article->link}}">
+                    <textarea class="@error('body') button-error @enderror text-area" name="body" id="body">{{$article->body}}</textarea>
+                    @error('body')
+                    <p class="error-message">{{$errors->first('body')}}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -43,7 +45,7 @@
                 <button class="button is-link">Submit</button>
             </div>
         </form>
-        <form method="POST" action="/blog/{{$article->id}}">
+        <form method="POST" action="/article/{{$article->id}}">
             @csrf
             @method('DELETE')
             <button type="submit">Delete</button>

@@ -39,7 +39,6 @@ class ArticleSeeder extends Seeder
                         <li>Nice design</li>
                     </ul>
                     </p>',
-            'link'=>'feedbackwebsite.blade.php'
         ]);
         DB::table('articles')->insert([
             'title'=>'Profession',
@@ -141,7 +140,6 @@ class ArticleSeeder extends Seeder
                     developers, you have to deliver good work and fast. This is also the fun part, but sometimes
                     the pressure gets to too high standards. But I have no idea if that is the case at Maxxton.
                 </p>',
-            'link'=>'profession.blade.php'
         ]);
         DB::table('articles')->insert([
             'title'=>'First Feedback',
@@ -166,7 +164,6 @@ class ArticleSeeder extends Seeder
                 A fellow student has kind of the same problem with this, and we agreed that we will look out for each
                 other so that we are not doing too much.
                 </p>',
-            'link'=>'feedback.blade.php'
         ]);
         DB::table('articles')->insert([
             'title'=>'Programming experience',
@@ -175,7 +172,6 @@ class ArticleSeeder extends Seeder
                         prior education. In my last studies I had courses about basic programming and Python and Visual
                         Basic. After that, I followed some basic online courses about HTML/CSS, JavaScript, Java and
                         C++.</p>',
-            'link'=>'profession.blade.php'
         ]);
         DB::table('articles')->insert([
             'title'=>'Personal SWOT-Analysis',
@@ -214,7 +210,6 @@ class ArticleSeeder extends Seeder
         I keep telling myself that it is good enough, I am certain I will succeed in the studies and in a further
         career.
         </p>',
-            'link'=>'swot.blade.php'
         ]);
         DB::table('articles')->insert([
             'title'=>'Study Choice',
@@ -248,7 +243,6 @@ class ArticleSeeder extends Seeder
                     opportunities in the future as of pursuing a good career, but It will also add to my personal
                     development.
                 </p>',
-            'link'=>'studychoice.blade.php'
         ]);
     }
 }
