@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Article;
+use App\Http\Controllers\{ArticleController, CourseController, FAQController, ProfileController, GradeController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,21 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/posts/{post}', function ($post) {
-    $posts = [
-        'my-first-post' => 'Hello, this is my first blog post!',
-        'my-second-post' => 'Now I am getting the hang of this blogging thing.'
-    ];
+Route::get('/posts/{slug}', [\App\Http\Controllers\PostsController::class, 'show']);
 
-    if (!array_key_exists($post, $posts)) {
-        abort(404, 'Sorry, that post was not found.');
-    }
-
-    return view('post', [
-        'post' => $posts[$post]
-    ]);
-});
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'show']);
+Route::get('/profile', [ProfileController::class, 'show']);
+Route::resource('/faq', FAQController::class);
+Route::resource('/article', ArticleController::class);
+Route::resource('/grade', GradeController::class);
+Route::resource('/course', CourseController::class);
