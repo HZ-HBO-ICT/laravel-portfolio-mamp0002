@@ -18,6 +18,10 @@ class Course extends Model
         return $this->hasMany(Grade::class);
     }
 
+    /**
+     * marks the passed_at at now if all the grades that belong to the
+     * course are passed
+     */
     public function assignCredits()
     {
         $grades = Grade::where('course_id', $this->id)->get();
