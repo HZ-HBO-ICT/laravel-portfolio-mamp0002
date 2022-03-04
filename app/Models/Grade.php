@@ -23,7 +23,17 @@ class Grade extends Model
             if ($this->best_grade >= 5.5) {
                 $this->passed_at = now();
             }
+            $course = Course::where('id', $this->course_id)->first();
+            $course->assignCredits();
         }
         $this->save();
+    }
+
+    /**
+     * gets the course related to the grade
+     */
+    public function course()
+    {
+        return $this->belongsTo(Course::class, 'course_id');
     }
 }

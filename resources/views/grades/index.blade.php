@@ -17,6 +17,16 @@
     <main class="margin-not-index">
         <section>
             <article>
+                <p>Amount of credits progress:
+                    <progress value="0" max="60">
+                        <span>25</span>%
+                    </progress>
+                    <br>
+                    Make sure you have at least 45 credits to pass the NBSA Boundary!
+                </p>
+            </article>
+            <br><br><br>
+            <article>
                 <table class="courses">
                     <thead>
                     <tr>
@@ -28,24 +38,37 @@
 
                     <tbody>
                     <tr>
-                        <th>Quartile</th>
                         <th>Course</th>
                         <th>EC</th>
                         <th>Exam</th>
                         <th>Grade</th>
+                        <th>Quartile</th>
                         <th></th>
                     </tr>
-                    @foreach($grades as $grade)
+
+                    @foreach($courses as $course)
                         <tr>
-                            <td>{{$grade->category}}</td>
-                            <td>{{$grade->course_name}}</td>
-                            <td>{{$grade->credits}}</td>
-                            <td>{{$grade->test_name}}</td>
-                            <td>{{$grade->best_grade}}</td>
-                            <td><button onclick=window.location.href="{{route('grade.edit', $grade)}}">
-                                    Edit
-                                </button></td>
+                            <td rowspan="{{$gradesInCourse[$course->id]}}">{{$course->name}}</td>
+                            <td rowspan="{{$gradesInCourse[$course->id]}}">{{$course->EC}}</td>
+                            @if($gradesInCourse[$course->id] === 0)
+                                <td colspan="4">
+                                    <button onclick=window.location.href="{{route('grade.create', $grade, $course->id)}}">
+                                        Add grade
+                                    </button></td>
+                            @endif
+                            @foreach($grades as $grade)
+                                @if($grade->course_id === $course->id)
+                                    <td>{{$grade->test_name}}</td>
+                                    <td>{{$grade->best_grade}}</td>
+                                    <td>{{$course->category}}</td>
+                                    <td>
+                                        <button onclick=window.location.href="{{route('grade.edit', $grade)}}">
+                                            Edit
+                                        </button>
+                                    </td>
                         </tr>
+                        @endif
+                    @endforeach
                     @endforeach
                     </tbody>
                 </table>
@@ -54,6 +77,9 @@
         <br>
         <button onclick=window.location.href="{{route('grade.create')}}">
             Add New Grade
+        </button>
+        <button onclick=window.location.href="{{route('course.index')}}">
+            Course overview
         </button>
     </main>
 @endsection

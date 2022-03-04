@@ -24,7 +24,7 @@
     <ul>
         <li class="{{Request::path() === '/' ? 'active' : ''}}"><a href="/">Home</a></li>
         <li class="{{Request::path() === 'profile' ? 'active' : ''}}"><a href="profile">Profile</a></li>
-        <li class="{{Request::path() === 'dashboard' ? 'active' : ''}}"><a href="dashboard">Dashboard</a></li>
+        <li class="{{Request::path() === 'grade' ? 'active' : ''}}"><a href="grade">Dashboard</a></li>
         <li class="{{Request::path() === 'article' ? 'active' : ''}}"><a href="article">Blog</a></li>
         <li class="{{Request::path() === 'faq' ? 'active' : ''}}"><a href="faq">FAQ</a></li>
     </ul>

@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Article;
-use App\Http\Controllers\{ArticleController, DashboardController, FAQController, ProfileController, GradeController};
+use App\Http\Controllers\{ArticleController, CourseController, FAQController, ProfileController, GradeController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +19,7 @@ Route::get('/posts/{slug}', [\App\Http\Controllers\PostsController::class, 'show
 
 Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'show']);
 Route::get('/profile', [ProfileController::class, 'show']);
-Route::get('/dashboard', [DashboardController::class, 'show']);
 Route::resource('/faq', FAQController::class);
 Route::resource('/article', ArticleController::class);
 Route::resource('/grade', GradeController::class);
+Route::resource('/course', CourseController::class);
